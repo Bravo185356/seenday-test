@@ -1,0 +1,38 @@
+.block {
+    padding: 16px;
+    display: grid;
+    row-gap: 15px;
+}
+
+.main > div {
+    display: grid;
+    align-content: start;
+    row-gap: 15px;
+}
+
+.sort-button-row {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.list-wrapper {
+    display: grid;
+    row-gap: 15px;
+}
+
+.control-buttons {
+    display: flex;
+    column-gap: 10px;
+    justify-content: space-between;
+}
+
+.back-button {
+    display: none;
+}
+
+@include active-by('lg') {
+    .back-button {
+        display: block;
+    }
+}
