@@ -11,19 +11,20 @@
     >
   </div>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { Button } from "@/ui/button/index.ts";
 
-const props = defineProps({
-  currentSortType: {
-    type: String,
-    default: "все"
-  }
-});
+import type { SortType } from './type.ts';
+
+type Props = {
+  currentSortType: String
+}
+
+const props = defineProps<Props>();
 
 const emit = defineEmits(["update:sortType"]);
 
-const sortTypes = [
+const sortTypes: SortType[] = [
   { value: "все", title: "все", icon: "" },
   { value: "sort_type_2", title: "", icon: "fa-regular fa-crown" },
   { value: "sort_type_3", title: "", icon: "fa-regular fa-thumbs-up" },
@@ -34,8 +35,8 @@ const sortTypes = [
   { value: "sort_type_8", title: "", icon: "fa-light fa-id-card-clip" }
 ];
 
-function updateSortType(sortType) {
-  emit("update:sortType", sortType);
+function updateSortType(sortTypeValue: string) {
+  emit("update:sortType", sortTypeValue);
 }
 </script>
 <style></style>

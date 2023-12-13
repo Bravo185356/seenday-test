@@ -3,13 +3,16 @@
     <div>№: {{ order.id }}</div>
   </StatusCard>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { StatusCard } from "@/ui/status-card/index.ts";
+import type { Order } from '@/components/order-list/index.ts';
 
-const props = defineProps({
-  order: Object
-});
+type Props = {
+  order: Order
+}
 
+const props = defineProps<Props>();
+// Из API приходит число, а в StatusCard нужно передать цвет, чтобы отрисовать статус
 const statuses = ref(["green", "blue", "red"]);
 
 const status = computed(() => {

@@ -33,7 +33,7 @@
     </div>
   </fixed-left-column>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { useRouter, useRoute } from "vue-router";
 
 import fixedLeftColumn from "@/views/layout/fixed-left-column.vue";
@@ -44,6 +44,7 @@ import { unixTimestampToLocale } from "@/lib/unix-timestamp-to-locale.ts";
 import { Select } from "@/ui/select/index.ts";
 import SortTypeButtons from "@/components/sort-types/index.ts";
 import { OrderList } from "@/components/order-list/index.ts";
+import type { SearchTypes } from "@/components/shared/search/index.ts";
 
 const router = useRouter();
 const route = useRoute();
@@ -53,7 +54,7 @@ const sortType = ref("все");
 const searchInput = ref("");
 const selectedYear = ref("");
 const date = ref(null);
-const selectItems = ref({
+const selectItems: SearchTypes = ref({
   order_number: { placeholder: "Введите номер заказа", title: "Номер заказа" },
   psid: { placeholder: "Введите номер фотосессии", title: "Номер фотосессии" },
   client_id: { placeholder: "Введите клиент ID", title: "Клиент ID" },
