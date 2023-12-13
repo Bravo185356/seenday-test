@@ -49,10 +49,10 @@ import type { SearchTypes } from "@/components/shared/search/index.ts";
 const router = useRouter();
 const route = useRoute();
 
-const searchType = ref("order_number");
+const searchType = ref(route.query.search_type || "order_number");
 const sortType = ref("все");
-const searchInput = ref("");
-const selectedYear = ref("");
+const searchInput = ref(route.query.search_value || "");
+const selectedYear = ref(route.query.year || "");
 const date = ref(null);
 const selectItems: SearchTypes = ref({
   order_number: { placeholder: "Введите номер заказа", title: "Номер заказа" },
