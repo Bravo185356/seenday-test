@@ -3,7 +3,7 @@
     <template v-slot:fixed>
       <Button class="back-button" width="full" size="large" color="light-purple-reverse">Назад</Button>
       <div class="block">
-        <DateRange :date="date" @change="newDateRange => (date = newDateRange)" />
+        <DateRange :date="date" @clear-date-range="date = null" @change="newDateRange => (date = newDateRange)" />
         <search
           :type="searchType"
           :types="selectItems"

@@ -7,6 +7,7 @@
     placeholder="Выберите диапазон дат"
     select-text="Выбрать"
     cancel-text="Закрыть"
+    @cleared="$emit('clearDateRange')"
   />
 </template>
 
@@ -14,7 +15,7 @@
 import VueDatePicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 
-const emit = defineEmits(["change"]);
+const emit = defineEmits(["change", "clearDateRange"]);
 
 const props = defineProps({
   date: {
@@ -33,7 +34,6 @@ const dateRange = computed({
     handleDate(newValue);
   }
 });
-
 
 function formatDateRange(dateRangeFilter) {
   const range = [];
